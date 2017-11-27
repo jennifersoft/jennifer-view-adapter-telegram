@@ -57,7 +57,7 @@ public class TelegramClient {
     public String push() {
         HttpURLConnection connection = null;
         try{
-            Map<String, String> params = new LinkedHashMap<>();
+            Map<String, String> params = new LinkedHashMap();
             params.put(CHAT_ID_FIELD, telegramProperties.getChatId());
             params.put(DISABLE_WEBPAGE_VIEW_FIELD, 1 + "");
             params.put(TEXT_FIELD, message);
