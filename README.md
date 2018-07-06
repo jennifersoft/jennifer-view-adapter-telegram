@@ -54,3 +54,5 @@ The following table shows the required options for this adapter
 | ------------- |:-------------:|:-------------:|:-------------:|
 | token | YES           | Set the token you obtained from the BotFather here | 0980943:ojasdasctlkjlkjasdlnasdnxcmv|
 | chat_id | YES           | Set the chat ID here  | 45623121|
+| proxy_host | NO | If you are using proxy, use this option to set the Proxy Host IP | 10.10.2.2|
+| proxy_port | NO | If you are using proxy, use this option to set the  Proxy Port Number | 3128|

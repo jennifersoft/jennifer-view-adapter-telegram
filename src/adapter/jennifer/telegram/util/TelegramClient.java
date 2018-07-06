@@ -4,9 +4,7 @@ import adapter.jennifer.telegram.entity.TelegramProperties;
 import com.jennifersoft.view.adapter.util.LogUtil;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
+import java.net.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -66,7 +64,16 @@ public class TelegramClient {
             byte[] postDataBytes = getQuery(params).getBytes(ENCODING);
 
             URL url = new URL(telegramProperties.getUrl());
-            connection = (HttpURLConnection) url.openConnection();
+
+            if (telegramProperties.isUseProxy()){
+                InetSocketAddress proxyAddress = new InetSocketAddress(telegramProperties.getProxyHost(), telegramProperties.getProxyPort());
+                Proxy proxy = new Proxy(Proxy.Type.HTTP, proxyAddress);
+                connection = (HttpURLConnection) url.openConnection(proxy);
+            }else {
+                connection = (HttpURLConnection) url.openConnection();
+            }
+
+
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             connection.setRequestProperty("charset", ENCODING);
@@ -95,7 +102,6 @@ public class TelegramClient {
 
         }catch (Exception ex) {
             LogUtil.error("Error while pushing the message. Reason : " + ex.toString());
-            ex.printStackTrace();
             return null;
         }finally {
             if (connection != null) connection.disconnect();

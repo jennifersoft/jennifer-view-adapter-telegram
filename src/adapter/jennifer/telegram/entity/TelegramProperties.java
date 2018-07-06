@@ -23,6 +23,21 @@ public class TelegramProperties {
     private String chatId;
 
     /**
+     * Use Proxy
+     */
+    private boolean useProxy = false;
+
+    /**
+     * Proxy Host
+     */
+    private String proxyHost;
+
+    /**
+     * The proxy port
+     */
+    private int proxyPort;
+
+    /**
      * Default Constructor
      */
     public TelegramProperties() {}
@@ -41,6 +56,30 @@ public class TelegramProperties {
 
     public String getChatId() {
         return chatId;
+    }
+
+    public boolean isUseProxy() {
+        return useProxy;
+    }
+
+    public void setUseProxy(boolean useProxy) {
+        this.useProxy = useProxy;
+    }
+
+    public int getProxyPort() {
+        return proxyPort;
+    }
+
+    public void setProxyPort(int proxyPort) {
+        this.proxyPort = proxyPort;
+    }
+
+    public String getProxyHost() {
+        return proxyHost;
+    }
+
+    public void setProxyHost(String proxyHost) {
+        this.proxyHost = proxyHost;
     }
 
     /**

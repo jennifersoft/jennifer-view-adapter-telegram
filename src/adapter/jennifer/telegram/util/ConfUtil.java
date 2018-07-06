@@ -16,9 +16,13 @@ public class ConfUtil {
      */
     private static final String ADAPTER_ID = "telegram";
 
-    private static final String CHAT_ID_KEY ="chat_id";
+    private static final String CHAT_ID_KEY = "chat_id";
 
-    private static final String TOKEN_KEY ="token";
+    private static final String TOKEN_KEY = "token";
+
+    private static final String PROXY_HOST ="proxy_host";
+
+    private static final String PROXY_PORT ="proxy_port";
 
 
     /**
@@ -35,10 +39,17 @@ public class ConfUtil {
      * @return TelegramProperties instance
      */
     public static TelegramProperties getTelegramProperties() {
+
         TelegramProperties properties = new TelegramProperties();
         properties.setChatId(getVallue(CHAT_ID_KEY));
         properties.setToken(getVallue(TOKEN_KEY));
 
+        boolean useProxy = getVallue(PROXY_HOST) == null ? false : true;
+        properties.setUseProxy(useProxy);
+        if (useProxy) {
+            properties.setProxyHost(getVallue(PROXY_HOST));
+            properties.setProxyPort(Integer.parseInt(getVallue(PROXY_PORT)));
+        }
         return properties;
     }
 }
