@@ -1,7 +1,7 @@
-package adapter.jennifer.telegram.util;
+package com.aries.telegram.util;
 
-import adapter.jennifer.telegram.entity.TelegramProperties;
-import com.jennifersoft.view.adapter.util.LogUtil;
+import com.aries.extension.util.LogUtil;
+import com.aries.telegram.entity.TelegramProperties;
 
 import java.io.*;
 import java.net.*;
@@ -52,6 +52,10 @@ public class TelegramClient {
         this.telegramProperties = properties;
     }
 
+    /**
+     * Send the message
+     * @return String response message or nul
+     */
     public String push() {
         HttpURLConnection connection = null;
         try{
@@ -110,6 +114,12 @@ public class TelegramClient {
     }
 
 
+    /**
+     * Construct the request params
+     * @param params Request Param Map
+     * @return String Request param as string
+     * @throws UnsupportedEncodingException
+     */
     private String getQuery(Map<String, String> params) throws UnsupportedEncodingException{
         StringBuilder postData = new StringBuilder();
         for(Map.Entry<String, String> param : params.entrySet()) {

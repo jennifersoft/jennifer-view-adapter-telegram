@@ -1,4 +1,4 @@
-package adapter.jennifer.telegram.util;
+package com.aries.telegram.util;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

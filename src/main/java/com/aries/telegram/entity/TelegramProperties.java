@@ -1,4 +1,4 @@
-package adapter.jennifer.telegram.entity;
+package com.aries.telegram.entity;
 
 /**
  * Telegram Properties and Configurations

@@ -1,7 +1,7 @@
-package adapter.jennifer.telegram.util;
+package com.aries.telegram.util;
 
-import adapter.jennifer.telegram.entity.TelegramProperties;
-import com.jennifersoft.view.extension.util.PropertyUtil;
+import com.aries.extension.util.PropertyUtil;
+import com.aries.telegram.entity.TelegramProperties;
 
 /**
  * Adapter Configuration file
@@ -44,6 +44,7 @@ public class ConfUtil {
         properties.setChatId(getVallue(CHAT_ID_KEY));
         properties.setToken(getVallue(TOKEN_KEY));
 
+        //Proxy Support - July 2018
         boolean useProxy = getVallue(PROXY_HOST) == null ? false : true;
         properties.setUseProxy(useProxy);
         if (useProxy) {

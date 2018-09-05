@@ -1,4 +1,4 @@
-package adapter.jennifer.telegram.entity;
+package com.aries.telegram.entity;
 
 /**
  * @author Khalid Saeed <khalid@jennifersoft.com>
